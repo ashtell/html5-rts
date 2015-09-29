@@ -47,9 +47,9 @@ function V2(init_x, init_y)
   var recalculateNorm = function()
   {
     // value is cached to avoid calculating too many inverses and square-roots
-    norm = (x == 0) ? Math.abs(y) 
-		    : ((y == 0) ? Math.abs(x) : Math.sqrt(x*x + y*y));
-  }
+    norm = (x === 0) ? Math.abs(y) 
+		    : ((y === 0) ? Math.abs(x) : Math.sqrt(x*x + y*y));
+  };
     
     
   /* METHODS 
@@ -57,15 +57,15 @@ function V2(init_x, init_y)
   */
   
   // getters
-  obj.x = function() { return x; }
-  obj.y = function() { return y; }
+  obj.x = function() { return x; };
+  obj.y = function() { return y; };
   
   obj.norm = function()
   {
     if(norm < 0)
       recalculateNorm();
     return norm;
-  }
+  };
   
   obj.norm2 = function()
   {
@@ -73,7 +73,7 @@ function V2(init_x, init_y)
       return (x*x + y*y);
     else
       return (norm*norm);
-  }
+  };
   
   // setters
   obj.setXY = function(new_x, new_y)
@@ -82,22 +82,22 @@ function V2(init_x, init_y)
     y = new_y;
     norm = -1.0;
     return obj;
-  }
+  };
   obj.setX = function(new_x)
   {
     obj.setXY(new_x, y);
     return obj;
-  }
+  };
   obj.setY = function(new_y)
   {
     obj.setXY(x, new_y);
     return obj;
-  }
+  };
   obj.fromV2 = function(v)
   {
     obj.setXY(v.x(), v.y());
     return obj;
-  }
+  };
   obj.setFromTo = function(v, w)
   {
     if(v.x() == w.x() && v.y() == w.y())
@@ -105,7 +105,7 @@ function V2(init_x, init_y)
     else
       obj.setXY(w.x()-v.x(), w.y()-v.y());
     return obj;
-  }
+  };
   
   obj.setNorm = function(new_norm)
   {
@@ -119,7 +119,7 @@ function V2(init_x, init_y)
       norm = new_norm;
     }
     return obj;
-  }
+  };
   
   // modification
   obj.floor = function()
@@ -127,61 +127,61 @@ function V2(init_x, init_y)
     x = Math.floor(x);
     y = Math.floor(y);
     return obj;
-  }
+  };
   
   obj.ninety_left = function()
   {
     obj.setXY(y, -x);
     return obj;
-  }
+  };
   obj.ninety_right = function()
   {
     obj.setXY(-y, x);
     return obj;
-  }
+  };
   
   obj.addX = function(amount)
   {
     obj.setXY(x + amount, y);
     return obj;
-  }
+  };
   obj.addY = function(amount)
   {
     obj.setXY(x, y + amount);
     return obj;
-  }
+  };
   obj.addXY = function(amount_x, amount_y)
   {
     obj.setXY(x + amount_x, y + amount_y);
     return obj;
-  }
+  };
   obj.addV2 = function(v)
   {
     obj.setXY(x + v.x(), y + v.y());
     return obj;
-  }
+  };
   obj.subV2 = function(v)
   {
     obj.setXY(x - v.x(), y - v.y());
     return obj;
-  }  
+  };  
   obj.scale = function(amount)
   {
     x *= amount;
     y *= amount;
     norm *= amount;
     return obj;
-  }
+  };
   
   obj.addNorm = function(amount)
   {
     obj.setNorm(norm + amount);
     return obj;
-  }
+  };
   
   obj.normalise = function()
   {
-    if(norm == 0)
+    if(norm === 0)
       return;
     else if(norm < 0)
       recalculateNorm();
@@ -195,7 +195,7 @@ function V2(init_x, init_y)
     angle_up_to_date = false;
     
     return old_norm;
-  }
+  };
   
   obj.addAngle = function(theta)
   {
@@ -203,39 +203,39 @@ function V2(init_x, init_y)
 	sin_theta = Math.sin(theta);
     obj.setXY(x*cos_theta - y*sin_theta, x*sin_theta + y*cos_theta);
     return obj;
-  }
+  };
   
   // get a scaled copy of the vector
   obj.scalecpy = function(amount)
   {
     return (new V2()).fromV2(obj).scale(amount);
-  }
+  };
   
   // mathematics
   obj.dot = function(v)
   {
     return x*v.x() + y*v.y;
-  } 
+  };
   obj.det = function(v)
   {
     return x*v.y() - y*v.x();
-  }
+  };
   obj.dist2 = function(v)
   {
     var dx = v.x()-x, dy = v.y()-y;
     return dx*dx + dy*dy;
-  }
+  };
   obj.coline = function(v)
   {
     // cosine of 0 is 1, so v1 and v2 are colinear if v1.v2 = 1*|v1|*|v2|
     return (obj.dot(v) == obj.norm()*v.norm());
-  }
+  };
   
   // printing, for debugging
   obj.toString = function()
   {
     return ('(' + x + ',' + y + ')');
-  }
+  };
   
   /* INITIALISE AND RETURN INSTANCE */
   x = (init_x || 0.0);

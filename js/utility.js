@@ -22,7 +22,7 @@ var areColliding = function(a, b)
 {
   return (a.getPosition().dist2(b.getPosition()) 
 	  < Math.pow(a.getRadius() + b.getRadius(), 2));
-}
+};
 
 
 function lap_around(position, half_size, boundary_size)

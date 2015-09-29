@@ -35,7 +35,7 @@ function Timer(starting_time, max_time, init_auto_reset)
   
   // other attributes
   var time = new Bank(starting_time, max_time, -1.0),
-      auto_reset = (init_auto_reset == undefined ? false : init_auto_reset);
+      auto_reset = (init_auto_reset === undefined ? false : init_auto_reset);
   
   /* SUBROUTINES 
   var f = function(p1, ... ) { } 
@@ -46,12 +46,12 @@ function Timer(starting_time, max_time, init_auto_reset)
   */
   
   // query
-  obj.getTime = function() { return time.getBalance(); } 
-  obj.isSet = function() { return time.getBalance() >= 0.0; }
+  obj.getTime = function() { return time.getBalance(); };
+  obj.isSet = function() { return time.getBalance() >= 0.0; };
   
   // modification
-  obj.reset = function(amount) { time.setFull(); }
-  obj.unset = function() { time.setEmpty(); }
+  obj.reset = function(amount) { time.setFull(); };
+  obj.unset = function() { time.setEmpty(); };
   
   // update
   obj.countdown = function(t_multiplier)
@@ -61,7 +61,7 @@ function Timer(starting_time, max_time, init_auto_reset)
       return false;
     
     // count down the timer
-    time.withdraw(t_multiplier)
+    time.withdraw(t_multiplier);
     
     // otherwise, if time has run out
     if(!obj.isSet())
@@ -77,7 +77,7 @@ function Timer(starting_time, max_time, init_auto_reset)
     else
       // timer continues to count down
       return false;
-  }
+  };
   
   /* INITIALISE AND RETURN INSTANCE */
 }

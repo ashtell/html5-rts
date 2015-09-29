@@ -120,76 +120,76 @@ function Rect(init_pos, init_size)
   {
     obj.setWH(new_w, h);
     return obj;
-  }
+  };
   obj.setH = function(new_h)
   {
     obj.setXY(w, new_h);
     return obj;
-  }
+  };
   obj.setSizeV2 = function(v)
   {
     obj.setWH(v.x(), v.y());
     return obj;
-  }
+  };
   // mutators -- position and size
   obj.setXYWH = function(x, y, w, h)
   {
     obj.setXY(x,y);
     obj.setWH(w,h);
-  }
+  };
   obj.fromRect = function(r)
   {
     obj.setXYWH(r.x(), r.y(), r.w(), r.h());
-  }
+  };
   
   // modification relative to current state
   obj.addX = function(amount)
   {
     obj.setXY(x + amount, y);
     return obj;
-  }
+  };
   obj.addY = function(amount)
   {
     obj.setXY(x, y + amount);
     return obj;
-  }
+  };
   obj.addXY = function(amount_x, amount_y)
   {
     obj.setXY(x + amount_x, y + amount_y);
     return obj;
-  }
+  };
   obj.addV2 = function(v)
   {
     obj.setXY(x + v.x(), y + v.y());
     return obj;
-  }
+  };
   obj.subV2 = function(v)
   {
     obj.setXY(x - v.x(), y - v.y());
     return obj;
-  }  
+  }; 
   obj.scale = function(amount)
   {
     w *= amount;
     h *= amount;
     return obj;
-  }
+  };
   obj.addW = function(amount)
   {
     obj.setWH(w + amount, h);
     return obj;
-  }
+  };
   obj.addH = function(amount)
   {
     obj.setWH(w, h + amount);
     return obj;
-  }
+  };
   
   // printing, for debugging
   obj.toString = function()
   {
     return ('(' + x + ',' + y + ',' + w + ',' + h +')');
-  }
+  };
   
   /* INITIALISE AND RETURN INSTANCE */
   if(init_pos)

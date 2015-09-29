@@ -45,7 +45,7 @@ function LoadingScreen() // extends AppState
     else 
       // launch the application proper only when ready
       return MainMenu; 
-  }
+  };
   
   // display a graphic while loading
   obj.draw = function()
@@ -64,5 +64,5 @@ function LoadingScreen() // extends AppState
     var percent_loaded = 100 - Math.round((left_to_load/total_to_load)*100);
     context.fillText("Loading " + percent_loaded + "%",
 		      canvas.width/2, canvas.height/2);
-  }
+  };
 }

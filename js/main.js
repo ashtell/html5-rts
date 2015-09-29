@@ -20,7 +20,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* LAUNCH THE APPLICATION */
 
-var prev_tick = this_tick = (new Date()).getTime();
+var prev_tick = this_tick;
+this_tick = (new Date()).getTime();
 function update_loop()
 {
   // deal with timing

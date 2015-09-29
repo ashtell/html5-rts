@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // focus
 canvas.focus = true;
-canvas.MAX_FPS = { focus : 60, sleep : 4 }
+canvas.MAX_FPS = { focus : 60, sleep : 4 };
 
 // offset
 var element_offset = function(element)
@@ -35,11 +35,11 @@ var element_offset = function(element)
       ox += element.offsetLeft;
       oy += element.offsetTop;
     } 
-    while (element = element.offsetParent);
+    while (element === element.offsetParent);
     
     return { x: ox, y: oy };
   }
   else
     return undefined;
-}
+};
 canvas.offset = element_offset(canvas);

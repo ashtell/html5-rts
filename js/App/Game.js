@@ -46,7 +46,7 @@ function Game() // extends AppState
   {
     // pan the view page on the keyboard direction
     if(view.pan(keyboard.direction.scalecpy(0.1*delta_t)));
-  }
+  };
   
   // display a graphic while loading
   obj.draw = function()
@@ -57,23 +57,23 @@ function Game() // extends AppState
     
     // draw the contents of the Map
     map.draw(view);
-  }
+  };
   
   // pass mouse-scroll on to the viewport
   obj.wheel_event = function(delta)
   {
     view.addZoom(delta * 0.1);
-  }
+  };
   
   // treat mousebutton input
   obj.mousebutton_event = function(which, pressed)
   {
     if(which == mouse.LEFT && pressed)
       map.select_tile(view.localToGlobal(mouse.pos));
-  }
+  };
   
   // treat keyboard input
   obj.keyboard_event = function(which, pressed)
   {
-  }
+  };
 }

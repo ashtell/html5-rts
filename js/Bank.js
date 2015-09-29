@@ -37,9 +37,9 @@ function Bank(starting_balance, max_balance, min_balance)
   var obj = this, typ = Bank;
   
   // other attributes
-  var balance = (starting_balance == undefined ? 0.0 : starting_balance),
-      max = (max_balance == undefined ? 1.0 : max_balance),
-      min = (min_balance == undefined ? 0.0 : min_balance);
+  var balance = (starting_balance === undefined ? 0.0 : starting_balance),
+      max = (max_balance === undefined ? 1.0 : max_balance),
+      min = (min_balance === undefined ? 0.0 : min_balance);
   
   /* SUBROUTINES 
   var f = function(p1, ... ) { } 
@@ -50,9 +50,9 @@ function Bank(starting_balance, max_balance, min_balance)
   */
   
   // query
-  obj.getBalance = function() { return balance; }
-  obj.isEmpty = function() { return (balance == min); }
-  obj.isFull = function() { return (balance == max); }
+  obj.getBalance = function() { return balance; };
+  obj.isEmpty = function() { return (balance == min); };
+  obj.isFull = function() { return (balance == max); };
   
   // modification
   obj.withdraw = function(amount)
@@ -69,7 +69,7 @@ function Bank(starting_balance, max_balance, min_balance)
     }
     // return the amount that was withdrawn
     return amount;
-  }
+  };
   
   obj.deposit = function(amount)
   {
@@ -85,7 +85,7 @@ function Bank(starting_balance, max_balance, min_balance)
     }
     // return the amount that was deposited
     return amount;
-  }
+  };
   
   obj.setBalance = function(amount)
   {
@@ -95,17 +95,17 @@ function Bank(starting_balance, max_balance, min_balance)
       balance = min;
     else
       balance = amount;
-  }
+  };
   
   obj.setFull = function()
   {
     return obj.deposit(max);
-  }
+  };
   
   obj.setEmpty = function()
   {
     return obj.withdraw(max);
-  }
+  };
   
   /* INITIALISE AND RETURN INSTANCE */
 }

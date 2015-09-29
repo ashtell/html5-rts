@@ -45,32 +45,32 @@ function Rect(init_pos, init_size)
   */
   
   // accessors
-  obj.x = function() { return x; }
-  obj.y = function() { return y; }
-  obj.w = function() { return w; }
-  obj.h = function() { return h; }
-  obj.endx = function() { return x+w; }
-  obj.endy = function() { return y+h; }
-  obj.pos = function() { return new V2(x, y); }
-  obj.endpos = function() { return new V2(x+w, y+h); }
-  obj.size = function() { return new V2(w, h); }
+  obj.x = function() { return x; };
+  obj.y = function() { return y; };
+  obj.w = function() { return w; };
+  obj.h = function() { return h; };
+  obj.endx = function() { return x+w; };
+  obj.endy = function() { return y+h; };
+  obj.pos = function() { return new V2(x, y); };
+  obj.endpos = function() { return new V2(x+w, y+h); };
+  obj.size = function() { return new V2(w, h); };
   
   // query
   obj.getOverlap = function(other)
   {
     var overlap = new V2(w - other.w(), h - other.h());
     return overlap;
-  }
+  };
   
   obj.containsXY = function(px, py)
   {
     return (px >= x && py >= y && px <= x+w && py <= y+h);
-  }
+  };
   
   obj.containsV2 = function(v)
   {
     return obj.containsXY(v.x(), v.y());
-  }
+  };
   
   obj.intersectsLine = function(start, end) 
   {
@@ -84,7 +84,7 @@ function Rect(init_pos, init_size)
     
     // otherwise it's all good!
     return true;
-  }
+  };
   
   // mutators
   // mutators -- position
@@ -93,29 +93,29 @@ function Rect(init_pos, init_size)
     x = new_x;
     y = new_y;
     return obj;
-  }
+  };
   obj.setX = function(new_x)
   {
     obj.setXY(new_x, y);
     return obj;
-  }
+  };
   obj.setY = function(new_y)
   {
     obj.setXY(x, new_y);
     return obj;
-  }
+  };
   obj.setPosV2 = function(v)
   {
     obj.setXY(v.x(), v.y());
     return obj;
-  }
+  };
   // mutators -- size
   obj.setWH = function(new_w, new_h)
   {
     w = new_w;
     h = new_h;
     return obj;
-  }
+  };
   obj.setW = function(new_w)
   {
     obj.setWH(new_w, h);

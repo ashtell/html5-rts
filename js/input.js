@@ -29,7 +29,7 @@ var mouse =
   /* variables */
   pos 		: new V2(0, 0),
   held 		: [ false, false, false ]
-}
+};
 
 var keyboard = 
 {
@@ -97,12 +97,12 @@ var keyboard =
     this.direction.setY((this.up && !this.down) ? -1 
 			  : ((!this.up && this.down) ? 1 : 0));
   }
-}
+};
 
 /* INPUT HANDLING -- CANVAS */
 
-canvas.onselectstart = function () { return false; }	// don't select text
-canvas.onselect = function () { return false; }		// don't select text
+canvas.onselectstart = function () { return false; };	// don't select text
+canvas.onselect = function () { return false; };		// don't select text
 
 canvas.onmousedown = function(event)
 {
@@ -120,7 +120,7 @@ canvas.onmousedown = function(event)
   event.stopPropagation();
   // don't select text
   return false;	
-}
+};
 
 canvas.onmouseup = function(event)
 {
@@ -134,7 +134,7 @@ canvas.onmouseup = function(event)
   event.stopPropagation();
   // don't select text
   return false;	
-}
+};
 
 canvas.onmousemove = function(event)
 {
@@ -142,18 +142,18 @@ canvas.onmousemove = function(event)
   mouse.pos.setXY(event.pageX - canvas.offset.x, event.pageY - canvas.offset.y);
   // don't act on elements below
   event.stopPropagation();
-}
+};
 
 var mousewheel = function(event)
 {
   // inter-browser compatibility
-  var event = window.event || event;
+  event = window.event || event;
   var delta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail)));
   // pass event to App
   App.getInstance().wheel_event(delta);
   // don't act on elements below
   event.stopPropagation();
-}
+};
 // more inter-browser compatibility
 canvas.addEventListener("DOMMouseScroll", mousewheel, false);
 canvas.addEventListener("mousewheel", mousewheel, false);
@@ -169,7 +169,7 @@ window.onkeydown = function(event)
   keyboard.set_state(event.keyCode, true);
   // don't act on elements below
   event.stopPropagation();
-}
+};
 
 window.onkeyup = function(event)
 { 
@@ -179,7 +179,7 @@ window.onkeyup = function(event)
   keyboard.set_state(event.keyCode, false);
   // don't act on elements below
   event.stopPropagation();
-}
+};
 
 /* INPUT HANDLING -- DOCUMENT */
 
@@ -190,4 +190,4 @@ document.onmousedown = function(e)
   context.fillRect(0, 0, canvas.width, canvas.height);
   // canvas is no longer the focus
   canvas.focus = false;
-}
+};

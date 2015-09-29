@@ -42,7 +42,7 @@ function MainMenu() // extends AppState
   obj.update = function(delta_t)
   {
     return next_state;
-  }
+  };
   
   // display a graphic while loading
   obj.draw = function()
@@ -57,12 +57,12 @@ function MainMenu() // extends AppState
     context.textBaseline = "Middle";
     context.fillStyle = "rgb(0, 0, 0)";
     context.fillText("Click to start", canvas.width*0.5, canvas.height*0.5);
-  }
+  };
   
   // handle mouse-button events
   obj.mousebutton_event = function(which, pressed)
   {
     if(pressed && which === mouse.LEFT)
       next_state = Game;
-  }
+  };
 }

@@ -73,7 +73,7 @@ function Map(size)
     var pos = view.globalToLocal(new V2(col*typ.TILE_SIZE, row*typ.TILE_SIZE));
     context.fillRect(pos.x() - 1, pos.y() - 1, 
 		      zoom*typ.TILE_SIZE + 1, zoom*typ.TILE_SIZE + 1);
-  }
+  };
     
   /* METHODS 
   (obj.f = function(p1, ... ) { }
@@ -89,7 +89,7 @@ function Map(size)
 	return undefined;
     else
       return grid[grid_pos.y()][grid_pos.x()];
-  }
+  };
   
   // accessors 
   
@@ -99,7 +99,7 @@ function Map(size)
     var cell = obj.posToCell(pos);
     if(cell)
       cell.selected = !cell.selected;
-  }
+  };
   
   // update
   obj.draw = function(view)
@@ -121,7 +121,7 @@ function Map(size)
     for(var col = Math.max(0, min.col); 
 	col < Math.min(grid[row].length, max.col); col++)
 	  drawGrid(row, col, view);  
-  }
+  };
   
   /* INITIALISE AND RETURN INSTANCE */
   return obj;

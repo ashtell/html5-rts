@@ -32,7 +32,7 @@ var resourceLoaded = function()
   // one less to wait for
   if(left_to_load > 0)
     left_to_load--;
-}
+};
 
 // simple image-loading API
 function load_image(file_name)
@@ -76,5 +76,5 @@ function play_audio(file_name)
   audio.src = DATA_LOCATION + file_name;
   audio.play();
   // tell the interpretor to delete this object as soon as possible
-  delete audio;
+  //delete audio;
 }

@@ -32,7 +32,7 @@ App.getInstance = function()
   if(!this.INSTANCE)
     this.INSTANCE = new App();
   return this.INSTANCE;
-}
+};
 
 /// INSTANCE ATTRIBUTES/METHODS
 function App()
@@ -56,12 +56,12 @@ function App()
     var next_state_type = state.update(delta_t);
     if(next_state_type)
       state = new next_state_type();
-  }
+  };
  
   obj.draw = function()
   {
     state.draw();
-  }
+  };
   
   obj.mousebutton_event = function(which, pressed)
   {
@@ -69,7 +69,7 @@ function App()
     if(state.mousebutton_event)
       // pass on the event only if it is
       state.mousebutton_event(which, pressed);
-  }
+  };
   
   obj.wheel_event = function(delta)
   {
@@ -77,7 +77,7 @@ function App()
     if(state.wheel_event)
       // pass on the event only if it is
       state.wheel_event(delta);
-  }
+  };
   
   obj.keyboard_event = function(which, pressed)
   {
@@ -85,7 +85,7 @@ function App()
     if(state.keyboard_event)
       // pass on the event only if it is
       state.keyboard_event(which, pressed);
-  }
+  };
 
   /* INITIALISE AND RETURN INSTANCE */
   return obj;
